@@ -1,0 +1,143 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+class Song {
+public:
+    Song(string title, string artist)
+        : title_(title), artist_(artist) {}
+
+    string title() const { return title_; }
+    string artist() const { return artist_; }
+
+private:
+    string title_;
+    string artist_;
+};
+
+class Playlist {
+public:
+    void addSong(const Song& song) {
+        songs_.push_back(song);
+    }
+
+    void removeSong(int index) {
+        if (index >= 0 && index < songs_.size()) {
+            songs_.erase(songs_.begin() + index);
+        }
+    }
+
+    Song getSong(int index) const {
+        if (index >= 0 && index < songs_.size()) {
+            return songs_[index];
+        }
+        }
+
+    int size() const { return songs_.size(); }
+
+    bool searchSong(string title) const {
+        auto it = find_if(songs_.begin(), songs_.end(), [title](const Song& song) {
+            return song.title() == title;
+        });
+        return it != songs_.end();
+    }
+
+    void display() const {
+        cout << "Playlist:" << endl;
+        for (size_t i = 0; i < songs_.size(); ++i) {
+            const Song& song = songs_[i];
+            cout << "Song " << i + 1 << ": " << song.title() << " by " << song.artist() << endl;
+        }
+    }
+
+    void sortPlaylist(string attribute) {
+        if (attribute == "title") {
+            sort(songs_.begin(), songs_.end(), [](const Song& s1, const Song& s2) {
+                return s1.title() < s2.title();
+            });
+        }
+        else if (attribute == "artist") {
+            sort(songs_.begin(), songs_.end(), [](const Song& s1, const Song& s2) {
+                return s1.artist() < s2.artist();
+            });
+        }
+    }
+
+private:
+    vector<Song> songs_;
+};
+
+int main() {
+    Playlist myPlaylist;
+
+    myPlaylist.addSong(Song("Song1", "Artist1"));
+    myPlaylist.addSong(Song("Song2", "Artist2"));
+    myPlaylist.addSong(Song("Song3", "Artist3"));
+
+    int choice;
+    do {
+        cout << "\nChoose an operation:" << endl;
+        cout << "1. Add a song" << endl;
+        cout << "2. Remove a song" << endl;
+        cout << "3. Display playlist" << endl;
+        cout << "4. Search for a song" << endl;
+        cout << "5. Sort playlist" << endl;
+        cout << "6. Exit" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1: {
+                string title, artist;
+                cout << "Enter the title of the song: ";
+                cin >> title;
+                cout << "Enter the artist of the song: ";
+                cin >> artist;
+                myPlaylist.addSong(Song(title, artist));
+                cout << "Song added to the playlist." << endl;
+                break;
+            }
+            case 2: {
+                int removeIndex;
+                cout << "Enter the index of the song to remove: ";
+                cin >> removeIndex;
+                myPlaylist.removeSong(removeIndex);
+                cout << "Song removed from the playlist." << endl;
+                    break;
+                }
+            case 3:
+                myPlaylist.display();
+                break;
+            case 4: {
+                string searchTitle;
+                cout << "Enter the title of the song to search: ";
+                cin >> searchTitle;
+
+                if (myPlaylist.searchSong(searchTitle)) {
+                    cout << "Song found in the playlist." << endl;
+                } else {
+                    cout << "Song not found in the playlist." << endl;
+                }
+                break;
+            }
+            case 5: {
+                string attribute;
+                cout << "Enter the attribute to sort by (title, artist): ";
+                cin >> attribute;
+                myPlaylist.sortPlaylist(attribute);
+                cout << "Playlist sorted by " << attribute << "." << endl;
+                break;
+            }
+            case 6:
+                cout << "Exiting program..." << endl;
+                break;
+            default:
+                cout << "Invalid choice. Please try again." << endl;
+        }
+    } while (choice != 6);
+
+    return 0;
+}
