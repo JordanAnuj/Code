@@ -1,0 +1,278 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+class Dairy {
+        Scanner sc=new Scanner (System.in); 
+        int dp;
+        int totaldairycost=0;
+        ArrayList <String> order=new ArrayList<>();
+        Dairy(){
+        do{
+        StringBuilder dairy = new StringBuilder();
+        System.out.println("DAIRY PRODUCTS:");
+        System.out.println("1.Milk------------->Rs.25/Bag");
+        System.out.println("2.Cottage Cheese--->Rs.30/100g");
+        System.out.println("3.Cheese----------->Rs.50/pack");
+        System.out.println("4.Eggs------------->Rs.60/dozen");
+        System.out.println("5.EXIT");
+        System.out.println("Enter your Dairy Products Choice:");
+        dp=sc.nextInt();
+        int dairy_cost=0;
+        int qty;
+        switch(dp){
+        case 1:
+            System.out.println("How Many Milk Packets?");
+            qty=sc.nextInt();
+            dairy_cost=25*qty;
+            order.add("Milk " +qty+" Packets Rs:"+dairy_cost);
+            break;
+        case 2:
+            System.out.println("How Many Blocks Of Amul Cottage Cheese ?");
+            qty=sc.nextInt();
+            dairy_cost=30*qty;
+            order.add("Cottage Cheese: "+qty+" Blocks Rs:"+dairy_cost);
+            break;
+        case 3:
+            System.out.println("How Many Blocks Of Mozerella Cheese?");
+            qty=sc.nextInt();
+            dairy_cost=25*qty;
+            order.add("Cheese: "+ +qty+" Blocks Rs:"+dairy_cost);
+            break;
+        case 4:
+            System.out.println("How Many Eggs?");
+            qty=sc.nextInt();
+            dairy_cost=25*qty;
+            order.add("Eggs: "+qty+" Packets Rs:"+dairy_cost);
+            break;
+        case 5:
+        System.out.println("Exiting Dairy Menu");
+        break;
+    }
+    totaldairycost+=dairy_cost;
+    }while(dp!=5);
+    System.out.println(" Your Total Dairy Cost Is: Rs."+totaldairycost);
+    }
+}  
+class Snacks {
+        int totalsnackcost=0;
+        int sp;
+        StringBuilder snacks=new StringBuilder();
+        Scanner sc=new Scanner (System.in);
+    ArrayList <String> order=new ArrayList<>();
+ Snacks(){
+        
+        do{ 
+        System.out.println("SNACKS:");
+        System.out.println("1.Uncle Chips------------->Rs.20/pack");
+        System.out.println("2.Kurkure----------------->Rs.20/pack");
+        System.out.println("3.Cookies----------------->Rs.100/kg");
+        System.out.println("4.Toblerone-------------->Rs.150/pack");
+        System.out.println("5.EXIT"); 
+        sp=sc.nextInt();
+        int snack_cost=0;
+        int qty;
+        switch(sp){
+        case 1:
+            System.out.println("How Many  Chips Packet?");
+            qty=sc.nextInt();
+            snack_cost=20*qty;
+            order.add("Chips "+qty+ " Packets Rs:"+snack_cost);
+            break;
+        case 2:
+            System.out.println("How Many Kurkure Packets?");
+            qty=sc.nextInt();
+            snack_cost=20*qty;
+            order.add("kurkure "+qty+" Packets Rs:"+snack_cost);
+            break;
+        case 3:
+            System.out.println("How Many Cookies Packet?");
+            qty=sc.nextInt();
+            snack_cost=100*qty;
+            order.add("Cookies "+qty+" Packets Rs:"+ +snack_cost);
+            break;
+         case 4:
+            System.out.println("How Many Toblerones?");
+            qty=sc.nextInt();
+            snack_cost=150*qty;
+            order.add("Toblerones "+qty+" Packets Rs:" +snack_cost);
+            break;
+            case 5:
+            System.out.println("Exiting Snacks Menu");
+            break;
+        }
+    totalsnackcost+=snack_cost;
+    
+    }while(sp!=5);
+    System.out.println(" Your Total Snack Cost Is: Rs."+totalsnackcost);
+    }
+}
+class Vegetables_Fruits {
+    int totalveggiecost=0;
+    int vp;
+    StringBuilder veggie=new StringBuilder();
+    Scanner sc=new Scanner (System.in);
+    ArrayList <String> order=new ArrayList<>();
+    Vegetables_Fruits(){
+    do{ 
+    System.out.println("VEGETABLES & FRUITS:");
+    System.out.println("1.Bitter Gourd------->Rs.70/kg");
+    System.out.println("2.Ladyfinger-------->Rs.50/kg");
+    System.out.println("3.Cauliflower-------->Rs.60/kg");
+    System.out.println("4.Cabbage---------->Rs.40/kg");
+    System.out.println("5.EXIT");
+    
+        vp=sc.nextInt();
+        int vf_cost=0;
+        int qty;
+        switch(vp){
+        case 1:
+            System.out.println("How Many Kgs Of Bitter Gourd?");
+            qty=sc.nextInt();
+            vf_cost=70*qty;
+            order.add("Bitter Gourd : "+qty+ " Kgs Rs:"+vf_cost);
+            break;
+        case 2:
+            System.out.println("How Many Kgs Of Ladyfinger?");
+            qty=sc.nextInt();
+            vf_cost=50*qty;
+            order.add("Ladyfinger: "+qty+" Kgs Rs:"+vf_cost);
+            break;
+        case 3:
+            System.out.println("How Many Kgs Of Cauliflower?");
+            qty=sc.nextInt();
+            vf_cost=60*qty;
+            order.add("Cauliflower "+qty+" Kgs Rs:"+vf_cost);
+            break;
+        case 4:
+            System.out.println("How Many Kgs Of Cabbage?");
+            qty=sc.nextInt();
+            vf_cost=40*qty;
+            order.add("Cabbage: "+qty+" Kgs Rs:"+vf_cost);
+            break;
+            case 5:
+            System.out.println("Exiting Vegetables & Fruits Menu");
+            break;
+        }
+    totalveggiecost+=vf_cost;
+    }while(vp!=5);
+    System.out.println(" Your Total Snack Cost Is: Rs."+totalveggiecost);
+    }
+}
+class Bakery_Items {
+        int totalbakerycost=0;
+        int bp;
+        StringBuilder bakery=new StringBuilder();
+        Scanner sc=new Scanner (System.in);
+        ArrayList <String> order=new ArrayList<>();
+    Bakery_Items(){
+    do{    
+    System.out.println("Bakery_Items:");
+    System.out.println("1.Cake------->Rs.570/kg");
+    System.out.println("2.Cupcake-------->Rs.50/peice");
+    System.out.println("3.Pastry-------->Rs.60/peice");
+    System.out.println("4.Mousse---------->Rs.840/kg");
+    System.out.println("5.EXIT");
+    bp=sc.nextInt();
+        int bak_cost=0;
+        int qty;
+        switch(bp){
+        case 1:
+            System.out.println("How Many Kgs Of Cake?");
+            qty=sc.nextInt();
+            bak_cost=570*qty;
+            order.add("Cake: "+qty+" Kgs Rs:"+bak_cost);
+            break;
+        case 2:
+            System.out.println("How Many Peices Of Cupcake?");
+            qty=sc.nextInt();
+            bak_cost=50*qty;
+            order.add("Cupcake: "+qty+" Pieces Rs:"+bak_cost);
+            break;
+        case 3:
+            System.out.println("How Many Peices Of Pastry?");
+            qty=sc.nextInt();
+            bak_cost=60*qty;
+            order.add("Pastry : "+qty+" Pieces Rs:" +bak_cost);
+            break;
+        case 4:
+            System.out.println("How Many Kgs Of Mousse?");
+            qty=sc.nextInt();
+            bak_cost=40*qty;
+            order.add("Mousse : "+qty+" Kgs Rs:"+bak_cost);
+            break;
+        case 5:
+            System.out.println("Exiting Bakery Items Menu");
+            break;
+        }
+    totalbakerycost+=bak_cost;
+    
+    }while(bp!=5);
+    System.out.println(" Your Total Bakery Cost Is: Rs."+totalbakerycost);
+    }
+} 
+class bill_summary{
+    int dpcost=0,bpcost=0,spcost=0,vpcost=0;
+    bill_summary(int dpcost,int bpcost,int spcost, int vpcost){
+        this.dpcost=dpcost;
+        this.bpcost=bpcost;
+        this.spcost=spcost;
+        this.vpcost=vpcost;
+    }
+    void displaytotal(){
+        int total=dpcost+bpcost+spcost+vpcost;
+        System.out.println("Your Total Bill Amount Is Rs :"+total);
+    }
+}
+public class cjpproject {
+    public static void main(String args[]){
+int u1;
+ArrayList <String> allorder=new ArrayList<>();
+Scanner sc=new Scanner (System.in);
+int dpcost=0;
+int bpcost=0;
+int spcost=0;
+int vpcost=0;
+do{
+System.out.println("Hello There Welcome To FoodiePanda");
+System.out.println("What You Want To Order Today? ");
+System.out.println("1.Dairy Products");
+System.out.println("2.Snacks");
+System.out.println("3.Vegetables & Fruits");
+System.out.println("4.Bakery Items");
+System.out.println("5.EXIT  & Display your final bill");
+System.out.println("What is your choice ?");
+u1=sc.nextInt();
+switch(u1)
+{
+    case 1:
+    Dairy D=new Dairy();
+    allorder.addAll(D.order);
+    dpcost=D.totaldairycost;
+    break;
+    case 2:
+    Snacks S=new Snacks();
+    allorder.addAll(S.order);
+    spcost=S.totalsnackcost;
+    break;
+    case 3:
+    Vegetables_Fruits V=new Vegetables_Fruits();
+    allorder.addAll(V.order);
+    vpcost=V.totalveggiecost;
+    break;
+    case 4:
+    Bakery_Items B=new Bakery_Items();
+    bpcost=B.totalbakerycost;
+    allorder.addAll(B.order);
+    break;
+    }
+}while(u1!=5);
+System.out.println("-------------------------Your Bill-------------------------");
+for(String items : allorder )
+{
+    System.out.println(items);
+}
+System.out.println("-----------------------------------------------------------");
+bill_summary b1=new bill_summary(dpcost, bpcost, spcost, vpcost);
+b1.displaytotal();
+
+    }
+}
